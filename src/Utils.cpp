@@ -8,7 +8,7 @@ using namespace std;
 
 bool ImportVectors(const string& inputFilePath,
                    size_t& n,
-				   double& S,
+		   double& S,
                    double*& w,
                    double*& r)
 {
@@ -18,8 +18,8 @@ bool ImportVectors(const string& inputFilePath,
         return false;
 
     char tmp;
-    fin.get(tmp);	// prendo S
-	fin.get(tmp);   // prendo ;
+    fin.get(tmp);  // prendo S
+    fin.get(tmp);   // prendo ;
 	
     fin >> S; // leggo il valore di S
 	
@@ -38,7 +38,7 @@ bool ImportVectors(const string& inputFilePath,
     r = new double[n];
 	
 	for(unsigned int i = 0; i < n; i++){
-        fin >> w[i];
+        	fin >> w[i];
 		fin.get(tmp);   // prendo ;
 		fin >> r[i];
 		fin.get(tmp);	// prendo \n
@@ -61,7 +61,7 @@ double final_value(size_t& n,
 
 
 double rate_of_return (double& S,
-					   double& V)
+		       double& V)
 {
 	double r_tot = V/S-1;
 	return r_tot;
@@ -70,11 +70,11 @@ double rate_of_return (double& S,
 
 bool ExportResult(const string& outputFilePath,
                   size_t& n,
-				  double& S,
-				  double*& w,
+		  double& S,
+		  double*& w,
                   double*& r,
-				  double& V,
-				  double& r_tot)
+		  double& V,
+		  double& r_tot)
 {
     ofstream file;
     file.open(outputFilePath);
@@ -95,7 +95,7 @@ bool ExportResult(const string& outputFilePath,
     file << "w = " << w_str << endl;
     file << "r = " << r_str << endl;
 	
-	// transformation of r_tot into string
+	// trasformo r_tot in una stringa
 	ostringstream r_tot_s;
 	r_tot_s << r_tot;
 	string r_tot_str = r_tot_s.str();
